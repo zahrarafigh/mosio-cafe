@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    a, button, .tab {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      user-select: none;
+      cursor: pointer;
+    }
+  </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mosio Cafe</title>
@@ -96,16 +113,6 @@ body::before {
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.3s ease;
-
-* {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* حذف هایلایت مخصوص لینک‌ها و آیکون‌ها روی iOS */
-a, button {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none; /* جلوگیری از انتخاب متن */
-}
 }
 
 .tab:visited,
