@@ -96,13 +96,24 @@ body::before {
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.3s ease;
+
+  color: var(--text);             /* قفل رنگ */
+  -webkit-tap-highlight-color: transparent; /* حذف آبی موبایل */
+}
+
+.tab:visited,
+.tab:focus,
+.tab:active {
+  color: var(--text);             /* نذار آبی شه */
+  outline: none;
 }
 
 .tab.active {
   background: #111;
   color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* کمی سایه برای تب فعال */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* سایه برای تب فعال */
 }
+
 
 
     section {
