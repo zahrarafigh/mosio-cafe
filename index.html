@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mosio Cafe</title>
+
+  <style>
+    @font-face {
+      font-family: 'Vazirmatn';
+      src: url('fonts/Vazirmatn-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Vazirmatn';
+      src: url('fonts/Vazirmatn-Bold.ttf') format('truetype');
+      font-weight: 600;
+    }
+    @font-face {
+      font-family: 'Roboto';
+      src: url('fonts/Roboto-Regular.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Roboto';
+      src: url('fonts/Roboto-Medium.ttf') format('truetype');
+      font-weight: 500;
+    }
+
+    :root {
+      --bg: #f8f1e7;
+      --text: #000000;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+  position: relative;
+}
+
+/* لوگو بزرگ وسط صفحه */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw;             /* عرض = کل عرض صفحه */
+  height: 100vh;            /* ارتفاع = کل ارتفاع صفحه */
+  background: url('logo.png') no-repeat center center;
+  background-size: contain;  /* لوگو نسبت خودش حفظ شود */
+  opacity: 0.05;             /* شفافیت کم مثل واترمارک */
+  pointer-events: none;      /* متن و آیتم‌ها قابل تعامل هستند */
+  transform: translate(-50%, -50%);
+  z-index: -1;               /* پشت همه محتوا */
+}
+
+
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 24px 16px 60px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      max-width: 140px;
+      margin: 0 auto 12px;
+      display: block;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      justify-content: center;
+    }
+
+    .tab {
+  background: transparent;
+  border: 1px solid var(--text);  /* یه حاشیه نازک */
+  border-radius: 24px;            /* گرد کردن دکمه */
+  padding: 6px 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background: #111;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* کمی سایه برای تب فعال */
+}
+
+
+    section {
+      display: none;
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      margin-bottom: 0;
+      box-shadow: none;
+    }
+
+    section.active { display: block; }
+
+    section h2 {
+      margin: 0 0 16px;
+      font-size: 20px;
+      font-weight: 600;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: none;
+      font-size: 15px;
+    }
+
+    .price {
+      font-weight: 600;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.6;
+      margin-top: 40px;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+
+
+    <div class="tabs">
+      <button class="tab active" data-target="hotandcold">نوشیدنی سرد و گرم</button>
+      <button class="tab" data-target="mocktail">ماکتل</button>
+      <button class="tab" data-target="herbaltea">دمنوش</button>
+      <button class="tab" data-target="milkshake">شیک</button>
+      <button class="tab" data-target="daily">غیره</button>
+    </div>
+  </header>
+
+  <!-- Hot & Cold -->
+  <section id="hotandcold" class="active">
+    <h2>نوشیدنی گرم و سرد</h2>
+    <div class="item"><span>اسپرسو سینگل</span><span class="price">50,000</span></div>
+    <div class="item"><span>اسپرسو دبل</span><span class="price">60,000</span></div>
+    <div class="item"><span>آمریکانو</span><span class="price">60,000</span></div>
+    <div class="item"><span>آیس آمریکانو</span><span class="price">65,000</span></div>
+    <div class="item"><span>ماکیاتو</span><span class="price">105,000</span></div>
+    <div class="item"><span>آیس ماکیاتو</span><span class="price">110,000</span></div>
+    <div class="item"><span>دوپیو</span><span class="price">120,000</span></div>
+    <div class="item"><span>تونیک</span><span class="price">85,000</span></div>
+    <div class="item"><span>ماسالا</span><span class="price">115,000</span></div>
+    <div class="item"><span>هانی ماسالا</span><span class="price">120,000</span></div>
+    <div class="item"><span>ماسالا موسیو</span><span class="price">135,000</span></div>
+    <div class="item"><span>نسکافه</span><span class="price">115,000</span></div>
+    <div class="item"><span>دالگونا</span><span class="price">120,000</span></div>
+    <div class="item"><span>هات چاکلت</span><span class="price">120,000</span></div>
+    <div class="item"><span>هات پسته</span><span class="price">190,000</span></div>
+    <div class="item"><span>هات مغز</span><span class="price">200,000</span></div>
+    <div class="item"><span>هات مارشمالو</span><span class="price">140,000</span></div>
+    <div class="item"><span>آفوگاتو موسیو</span><span class="price">165,000</span></div>
+    <div class="item"><span>هات موسیو</span><span class="price">240,000</span></div>
+    <div class="item"><span>هات پینک</span><span class="price">125,000</span></div>
+    <div class="item"><span>موکا</span><span class="price">115,000</span></div>
+    <div class="item"><span>آیس موکا</span><span class="price">120,000</span></div>
+    <div class="item"><span>موکا موسیو</span><span class="price">160,000</span></div>
+    <div class="item"><span>آیس موکا موسیو</span><span class="price">165,000</span></div>
+    <div class="item"><span>کاپوچینو</span><span class="price">115,000</span></div>
+    <div class="item"><span>کاپ لوتوس</span><span class="price">140,000</span></div>
+    <div class="item"><span>لاته</span><span class="price">100,000</span></div>
+    <div class="item"><span>آیس لاته</span><span class="price">110,000</span></div>
+    <div class="item"><span>ماچا لاته</span><span class="price">125,000</span></div>
+    <div class="item"><span>آیس ماچا لاته</span><span class="price">125,000</span></div>
+    <div class="item"><span>لاته لوتوس</span><span class="price">140,000</span></div>
+    <div class="item"><span>آفوگاتو</span><span class="price">135,000</span></div>
+    <div class="item"><span>آفوگاتو کره</span><span class="price">145,000</span></div>
+    <div class="item"><span>آفوگاتو منگو</span><span class="price">145,000</span></div>
+    <div class="item"><span>ایتالیانو</span><span class="price">185,000</span></div>
+  </section>
+
+  <!-- Mocktail -->
+  <section id="mocktail">
+    <h2>ماکتل</h2>
+    <div class="item"><span>موهیتو</span><span class="price">100,000</span></div>
+    <div class="item"><span>بلک موهیتو</span><span class="price">100,000</span></div>
+    <div class="item"><span>لیموناد</span><span class="price">100,000</span></div>
+    <div class="item"><span>پشن</span><span class="price">125,000</span></div>
+    <div class="item"><span>اوشن</span><span class="price">125,000</span></div>
+    <div class="item"><span>اسکای</span><span class="price">125,000</span></div>
+    <div class="item"><span>رزبری</span><span class="price">125,000</span></div>
+    <div class="item"><span>پیناکولادا</span><span class="price">125,000</span></div>
+    <div class="item"><span>جامائیکا</span><span class="price">125,000</span></div>
+  </section>
+
+  <!-- Herbal Tea -->
+  <section id="herbaltea">
+    <h2>دمنوش</h2>
+    <div class="item"><span>لیموعسل</span><span class="price">60,000</span></div>
+    <div class="item"><span>گل گاوزبان</span><span class="price">60,000</span></div>
+    <div class="item"><span>به لیمو</span><span class="price">60,000</span></div>
+    <div class="item"><span>چای ترش</span><span class="price">60,000</span></div>
+    <div class="item"><span>به سیب</span><span class="price">60,000</span></div>
+    <div class="item"><span>همدان(گل‌گاوزبان+لیمو عمانی+بابونه)</span><span class="price">90,000</span></div>
+    <div class="item"><span>آرامش(گل‌گاوزبان+زعفران+لیمو)</span><span class="price">90,000</span></div>
+    <div class="item"><span>آتیش(پودر گرمیانه+دارچین+زنجبیل)</span><span class="price">90,000</span></div>
+    <div class="item"><span>ارغوان(عناب+دارچین+به لیمو+بهارنارنج+چای ترش)</span><span class="price">90,000</span></div>
+  </section>
+
+  <!-- Milkshake -->
+  <section id="milkshake">
+    <h2>شیک</h2>
+    <div class="item"><span>شکلات</span><span class="price">170,000</span></div>
+    <div class="item"><span>توت فرنگی</span><span class="price">170,000</span></div>
+    <div class="item"><span>نوتلا</span><span class="price">210,000</span></div>
+    <div class="item"><span>موزشکلات</span><span class="price">200,000</span></div>
+    <div class="item"><span>وانیل</span><span class="price">170,000</span></div>
+    <div class="item"><span>اسمارتیز</span><span class="price">190,000</span></div>
+    <div class="item"><span>بادوم‌زمینی</span><span class="price">190,000</span></div>
+    <div class="item"><span>پسته</span><span class="price">280,000</span></div>
+    <div class="item"><span>لوتوس</span><span class="price">190,000</span></div>
+    <div class="item"><span>بادوم‌زمینی نوتلا</span><span class="price">210,000</span></div>
+  </section>
+
+  <!-- Daily -->
+  <section id="daily">
+    <h2>غیره</h2>
+    <div class="item"><span>کیک روز</span></div>
+    <div class="item"><span>اسموتی</span></div>
+    <div class="item"><span>کلدبرو</span></div>
+  </section>
+
+  <footer>_🅾cafemosio</footer>
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const sections = document.querySelectorAll('section');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    sections.forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.target).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
